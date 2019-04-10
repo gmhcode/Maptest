@@ -8,20 +8,23 @@
 
 import UIKit
 import MapKit
+import MessageUI
 class MapDirections: UIViewController {
 
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var goButton: UIButton!
     
-    
+//    13852501323
     var searchedCoordinate = CLLocationCoordinate2D()
     let locationManager = CLLocationManager()
     let regionInMeters: Double = 10000
     var previousLocation: CLLocation?
     
     let geoCoder = CLGeocoder()
+    
     var directionsArray: [MKDirections] = []
+    var turnByTurnDirections : String = ""
     
     
     override func viewDidLoad() {
@@ -35,6 +38,13 @@ class MapDirections: UIViewController {
     @IBAction func goButtonTapped(_ sender: UIButton) {
         getDirections()
     }
+    
+    
+    func printDirections(){
+//        PrintJobController.shared.addPrintJob(printer: <# Printer #>, textInput: turnByTurnDirections)
+        turnByTurnDirections = ""
+    }
+    
     
 }
 
@@ -60,6 +70,14 @@ extension MapDirections {
             guard let response = response else { return } //TODO: Show response not available in an alert
             
             for route in response.routes {
+                
+                for step in route.steps{
+                    
+                    print("🌹\(step.instructions)")
+                    self.turnByTurnDirections.append(" \(step.instructions) \n \n")
+                    TextController.shared.message.append(" \(step.instructions) \n \n")
+                }
+                
                 self.mapView.addOverlay(route.polyline)
                 self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
             }

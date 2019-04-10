@@ -15,7 +15,9 @@
 		901EA0B2225D032E000A92AD /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901EA0B1225D032E000A92AD /* SearchTableViewController.swift */; };
 		901EA0F4225D501B000A92AD /* MapBoundaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901EA0F3225D501B000A92AD /* MapBoundaryViewController.swift */; };
 		901EA0F6225D5025000A92AD /* GeoFenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901EA0F5225D5025000A92AD /* GeoFenceViewController.swift */; };
-		901EA0FA225D6483000A92AD /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901EA0F9225D6483000A92AD /* AuthManager.swift */; };
+		901EA124225E65E9000A92AD /* TextController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901EA123225E65E9000A92AD /* TextController.swift */; };
+		901EA126225E66FE000A92AD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901EA125225E66FE000A92AD /* ViewController.swift */; };
+		901EA128225E75DA000A92AD /* TwilioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901EA127225E75DA000A92AD /* TwilioController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +31,9 @@
 		901EA0B1225D032E000A92AD /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		901EA0F3225D501B000A92AD /* MapBoundaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBoundaryViewController.swift; sourceTree = "<group>"; };
 		901EA0F5225D5025000A92AD /* GeoFenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoFenceViewController.swift; sourceTree = "<group>"; };
-		901EA0F9225D6483000A92AD /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		901EA123225E65E9000A92AD /* TextController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextController.swift; sourceTree = "<group>"; };
+		901EA125225E66FE000A92AD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		901EA127225E75DA000A92AD /* TwilioController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwilioController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,9 +68,9 @@
 			children = (
 				901EA09F225CF702000A92AD /* AppDelegate.swift */,
 				901EA0A3225CF702000A92AD /* Main.storyboard */,
-				901EA0F8225D646E000A92AD /* AuthManager */,
 				901EA0F2225D4FEF000A92AD /* ViewControllers */,
 				901EA0A6225CF703000A92AD /* Assets.xcassets */,
+				901EA122225E65D8000A92AD /* TextController */,
 				901EA0A8225CF703000A92AD /* LaunchScreen.storyboard */,
 				901EA0AB225CF703000A92AD /* Info.plist */,
 			);
@@ -78,6 +82,7 @@
 			children = (
 				901EA0B1225D032E000A92AD /* SearchTableViewController.swift */,
 				901EA0F7225D50A1000A92AD /* MapVC's */,
+				901EA125225E66FE000A92AD /* ViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -92,13 +97,13 @@
 			path = "MapVC's";
 			sourceTree = "<group>";
 		};
-		901EA0F8225D646E000A92AD /* AuthManager */ = {
+		901EA122225E65D8000A92AD /* TextController */ = {
 			isa = PBXGroup;
 			children = (
-				901EA0F9225D6483000A92AD /* AuthManager.swift */,
+				901EA123225E65E9000A92AD /* TextController.swift */,
+				901EA127225E75DA000A92AD /* TwilioController.swift */,
 			);
-			name = AuthManager;
-			path = ViewControllers;
+			name = TextController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,10 +177,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				901EA124225E65E9000A92AD /* TextController.swift in Sources */,
 				901EA0A2225CF702000A92AD /* MapDirections.swift in Sources */,
-				901EA0FA225D6483000A92AD /* AuthManager.swift in Sources */,
 				901EA0B2225D032E000A92AD /* SearchTableViewController.swift in Sources */,
 				901EA0A0225CF702000A92AD /* AppDelegate.swift in Sources */,
+				901EA126225E66FE000A92AD /* ViewController.swift in Sources */,
+				901EA128225E75DA000A92AD /* TwilioController.swift in Sources */,
 				901EA0F4225D501B000A92AD /* MapBoundaryViewController.swift in Sources */,
 				901EA0F6225D5025000A92AD /* GeoFenceViewController.swift in Sources */,
 			);
@@ -326,6 +333,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 57FTCZV5HS;
 				INFOPLIST_FILE = Maptest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -344,6 +352,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 57FTCZV5HS;
 				INFOPLIST_FILE = Maptest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

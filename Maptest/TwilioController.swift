@@ -28,16 +28,16 @@ class TwilioController {
     
     
 
-    func sendText(message: String, completion: @escaping ()->()){
+    func sendText(message: String, to phoneNumber: String, completion: @escaping ()->()){
         
         
         guard let baseURL = baseURL else {print("🔥❇️>>>\(#file) \(#line): guard ket failed<<<"); return  }
         var request = URLRequest(url: baseURL)
         
-        let string = "From=13852501323&To=18017225596&Body=\(formatText(message: message))".data(using: .utf8)
+        let postBody = "From=13852501323&To=1\(phoneNumber)&Body=\(formatText(message: message))".data(using: .utf8)
 
         
-        request.httpBody = string
+        request.httpBody = postBody
         request.httpMethod = "POST"
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.setValue("Basic AC89a4c7bec68d8edb9dbf53effc5a6536:00e9b90f57b10e476f5e928bf797db21", forHTTPHeaderField: "Authorization")
@@ -52,7 +52,7 @@ class TwilioController {
             
             guard let data = data, let dataAsAString = String(data: data, encoding: .utf8) else {print("🔥❇️>>>\(#file) \(#line): guard ket failed<<<"); return  }
             
-            print("🆚\(dataAsAString)")
+//            print("🆚\(dataAsAString)")
             
         }.resume()
         

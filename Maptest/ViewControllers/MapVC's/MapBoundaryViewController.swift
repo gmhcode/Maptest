@@ -57,17 +57,17 @@ extension MapBoundaryViewController {
       
         let locationCoordinates = self.mapView.convert(location, toCoordinateFrom: self.mapView)
         boundary.append(locationCoordinates)
-        print("🌍\(locationCoordinates)")
+//        print("🌍\(locationCoordinates)")
         
         
         let annotation = MKPointAnnotation()
         
         annotation.coordinate = locationCoordinates
-                print("🌸\(annotation.coordinate)")
+//                print("🌸\(annotation.coordinate)")
         annotation.title = "New Place"
         annotation.subtitle = "subtitle"
         mapView.addAnnotation(annotation)
-        print("🐚\(boundary)")
+//        print("🐚\(boundary)")
     }
    
     
@@ -107,7 +107,7 @@ extension MapBoundaryViewController: CLLocationManagerDelegate {
     
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
+//        makes the screen keep up with the user
         // guard against there being no location
 //        guard let location = locations.last else {print("🔥❇️>>>\(#file) \(#line): guard ket failed<<<"); return  }
 //

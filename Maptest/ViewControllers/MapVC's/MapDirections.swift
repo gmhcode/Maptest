@@ -17,14 +17,13 @@ class MapDirections: UIViewController {
     
     var searchedCoordinate = CLLocationCoordinate2D()
     let locationManager = CLLocationManager()
-    let regionInMeters: Double = 10000
     var previousLocation: CLLocation?
     
     let geoCoder = CLGeocoder()
     
     var directionsArray: [MKDirections] = []
-    var turnByTurnDirections : String = ""
-    
+    var turnByTurnDirections = ""
+    var deliveryDriverNumber = "8017225596"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +46,7 @@ class MapDirections: UIViewController {
     }
     
     func textDirections(message: String){
-        TwilioController.shared.sendText(message: message) {
+        TwilioController.shared.sendText(message: message, to: deliveryDriverNumber) {
             
         }
     }
@@ -196,7 +195,7 @@ extension MapDirections {
     
     func centerViewOnUserLocation() {
         if let location = locationManager.location?.coordinate {
-            let region = MKCoordinateRegion.init(center: location, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
+            let region = MKCoordinateRegion.init(center: location, latitudinalMeters: 10000, longitudinalMeters: 10000)
             mapView.setRegion(region, animated: true)
         }
     }

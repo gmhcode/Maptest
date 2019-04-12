@@ -92,10 +92,6 @@ extension MapBoundaryViewController {
     }
 }
 
-
-
-
-
 extension MapBoundaryViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {

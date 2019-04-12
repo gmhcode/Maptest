@@ -15,7 +15,6 @@ class MapDirections: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var goButton: UIButton!
     
-//    13852501323
     var searchedCoordinate = CLLocationCoordinate2D()
     let locationManager = CLLocationManager()
     let regionInMeters: Double = 10000
@@ -36,16 +35,22 @@ class MapDirections: UIViewController {
     
     
     @IBAction func goButtonTapped(_ sender: UIButton) {
-        getDirections()
+        getDirections {
+            self.textDirections(message: self.turnByTurnDirections)
+        }
     }
     
     
     func printDirections(){
 //        PrintJobController.shared.addPrintJob(printer: <# Printer #>, textInput: turnByTurnDirections)
-        turnByTurnDirections = ""
+        
     }
     
-    
+    func textDirections(message: String){
+        TwilioController.shared.sendText(message: message) {
+            
+        }
+    }
 }
 
 
@@ -54,7 +59,11 @@ class MapDirections: UIViewController {
 extension MapDirections {
     
     
-    func getDirections() {
+    func getDirections(completion: @escaping ()->()) {
+        
+        turnByTurnDirections = ""
+//        TwilioController.shared.message = ""
+        
         guard let location = locationManager.location?.coordinate else {
             //TODO: Inform user we don't have their current location
             return
@@ -74,14 +83,16 @@ extension MapDirections {
                 for step in route.steps{
                     
                     print("🌹\(step.instructions)")
-                    self.turnByTurnDirections.append(" \(step.instructions) \n \n")
-                    TextController.shared.message.append(" \(step.instructions) \n \n")
+                    self.turnByTurnDirections.append("\(step.instructions) \n \n")
+//                    TwilioController.shared.message.append(" \(step.instructions) \n \n")
                 }
                 
                 self.mapView.addOverlay(route.polyline)
                 self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
             }
+            completion()
         }
+        
     }
     
     func createDirectionsRequest(from coordinate: CLLocationCoordinate2D) -> MKDirections.Request {
@@ -195,7 +206,6 @@ extension MapDirections {
             
         }
     }
-    
     
     
     func checkLocationAuthorization() {

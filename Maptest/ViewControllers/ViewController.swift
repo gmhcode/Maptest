@@ -18,9 +18,9 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        TwilioController.shared.postMessage(message: "hello") {
-            
-        }
+//        TwilioController.shared.sendText(message: "hello") {
+        
+//        }
         // Do any additional setup after loading the view.
     }
     

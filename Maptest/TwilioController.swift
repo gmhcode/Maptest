@@ -34,7 +34,7 @@ class TwilioController {
         guard let baseURL = baseURL else {print("🔥❇️>>>\(#file) \(#line): guard ket failed<<<"); return  }
         var request = URLRequest(url: baseURL)
         
-        let postBody = "From=13852501323&To=1\(phoneNumber)&Body=\(formatText(message: message))".data(using: .utf8)
+        let postBody = "From=13852501323&To=18017225596&Body=Hello".data(using: .utf8)
 
         
         request.httpBody = postBody

@@ -98,12 +98,14 @@ extension SearchViewController: UITableViewDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        guard let coordinate = coordinate else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
+        
         if segue.identifier == "toMap" {
         }
         
         let destinationVC = segue.destination as? MapDirections
         
-        destinationVC?.searchedCoordinate = coordinate!
+        destinationVC?.searchedCoordinate = coordinate
     }
 }
 

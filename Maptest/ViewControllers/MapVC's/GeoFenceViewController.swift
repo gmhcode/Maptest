@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import UserNotifications
 class GeoFenceViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!

@@ -29,7 +29,18 @@ class GeoFenceViewController: UIViewController {
         //TO ADD A GEOFENCE, USE THE ADDFENCE FUNCTION
 //        addFence(latitude: 45.783346498903946, longitude: -108.51460992442232, radius: 10000)
     }
-    
+    func notify(message: String){
+        let content = UNMutableNotificationContent()
+        content.title = message
+        content.subtitle = message
+        content.body = message
+        content.badge = 1
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let request = UNNotificationRequest(identifier: "timer Done", content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+    }
 }
 
 
@@ -98,6 +109,7 @@ extension GeoFenceViewController: CLLocationManagerDelegate{
         if region.identifier == "geoFence" {
             showAlert(title: "you entered the region", message: "Wow theres cool stuff in here!")
         }
+        notify(message: "you have entered the region")
     }
 //    left region
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
@@ -107,6 +119,7 @@ extension GeoFenceViewController: CLLocationManagerDelegate{
         } else{
             return
         }
+        notify(message: "you left the region")
     }
     
     func showAlert(title: String, message: String){

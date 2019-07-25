@@ -83,6 +83,7 @@ extension MapDirections {
                     
                     print("🌹\(step.instructions)")
                     self.turnByTurnDirections.append("\(step.instructions) \n \n")
+                    print("🍑\(self.turnByTurnDirections)")
 //                    TwilioController.shared.message.append(" \(step.instructions) \n \n")
                 }
                 
